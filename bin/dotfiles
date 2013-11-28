@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# Based on dotfiles by Ben Alman (https://github.com/cowboy/dotfiles).
+
+echo "Lucian's dotfiles"
+
+# Print help message and exit.
+if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "-help" ]]; then
+    # Google heredoc, for details about this syntax.
+    cat <<HELP
+Usage: $(basename "$0")
+
+See the README for documentation.
+https://github.com/lucianp/dotfiles.git
+
+Copyright (c) 2013 Lucian Pestritu
+Licensed under the MIT license.
+HELP
+    exit 0
+fi
+
+BACKUP_DIR="$HOME/dotfiles/backup/$(date "+%Y-%m-%dT%H.%M.%S%Z")/"
+
+# Link any files found in the link directory into home directory.
+# Back-up if necessary into the backup directory.
+# We do not actually call this function multiple times, it here just for better
+# modularity and maintainability.
+function link() {
+    local base dest
+    local files=(~/dotfiles/link/*) # this is a bash array
+    # Abort if no files found (no need to print the header).
+    if [[ ${#files[@]} -eq 0 ]]; then
+        return;
+    fi
+
+    echo 'Linking files into home directory...'
+    for file in "${files[@]}"; do
+        base="$(basename $file)"
+        dest="$HOME/$base"
+        # Skip if $dest is already a link to $file
+        if [[ "$file" -ef "$dest" ]]; then
+            echo " Skipping '~/$base', it is already a link to $file"
+            continue
+        fi
+        # Back-up if $dest already exists and it is not a link to $file.
+        if [[ -e "$dest" ]]; then
+            echo " Backing up '~/$base'"
+            # Create backup dir if it does not already exist.
+            [[ -e "$BACKUP_DIR" ]] || mkdir -p "$BACKUP_DIR"
+            # Backup $dest
+            mv "$dest" "$BACKUP_DIR"
+        fi
+        # Link into home directory. We need to remove $HOME from $file to make
+        # the links relative instead of absolute.
+        echo " Linking ~/$base"
+        ln -sf "${file#$HOME/}" "$dest"
+    done
+    echo 'Done linking files into home directory!'
+}
+
+# Tweak file globbing:
+# dotglob - glob patterns will match files that start with a dot .
+# nullglob - patterns that match no files expand to zero arguments, rather than
+# to themselves. 
+shopt -s dotglob
+shopt -s nullglob
+
+link
+
