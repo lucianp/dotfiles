@@ -1,0 +1,12 @@
+/backup/
+
+# Swap files (mostly of Vim)
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# OS-generated files
+.DS_Store
+.DS_Store?
