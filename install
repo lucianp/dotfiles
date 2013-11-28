@@ -2,7 +2,7 @@
 
 # Based on dotfiles by Ben Alman (https://github.com/cowboy/dotfiles).
 
-echo "Lucian's dotfiles"
+echo "Lucian's dotfiles install script"
 
 # Print help message and exit.
 if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "-help" ]]; then
