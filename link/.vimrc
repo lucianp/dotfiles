@@ -116,8 +116,12 @@ set nowrap          " do not wrap text
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 7. Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Do not place comments on the same line with *map commands!
+" Press jj instead of <Esc> to exit insert mode
 imap jj <Esc>
+" Y yanks the current inner word into the "y register
 noremap Y "yyiw
+" S replaces the current inner word with the "y register
 noremap S diw"yP
 
 
