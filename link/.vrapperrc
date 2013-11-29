@@ -1,0 +1,22 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The .vrapperrc file of Lucian Pestritu
+" Check http://github.com/lucianp/dotfiles for the latest version.
+"
+" Quote from Vrapper's official website http://vrapper.sourceforge.net/home :
+" Vrapper is an Eclipse plugin which acts as a wrapper for Eclipse text editors
+" to provide a Vim-like input scheme for moving around and editing text.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Let the underlying editor indent (on by default anyway)
+set smartindent
+" Search results will be highlighted
+set hlsearch
+" Highlight current line
+set cul
+""" Do not place comments on the same line with *map commands!
+" Press jj instead of <Esc> to exit insert mode
+imap jj <Esc>
+" Y yanks the current inner word into the "y register
+noremap Y "yyiw
+" S replaces the current inner word with the "y register
+noremap S diw"yP
+
