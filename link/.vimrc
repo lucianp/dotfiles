@@ -59,8 +59,8 @@ silent! colorscheme solarized
 set number          " show line numbers
 set cul             " highlight current line
 set laststatus=2    " last window always has a statusline
-set nohlsearch      " do not continue to highlight searched phrases.
-set incsearch       " but do highlight as you type your search
+set hlsearch        " highlight searched phrases
+set incsearch       " highlight as you type your search
 set ignorecase      " make searches case-insensitive
 set ruler           " always show info along bottom
 "set showmatch      " when a paren is inserted, briefly jump to the matching one
@@ -77,18 +77,18 @@ set spell           " enable spell checking
 if has("gui_running")
     " Set font (different syntax depending on the platform)
     if has("gui_gtk2")
-        set guifont=Source\ Code\ Pro\ Medium\ 10
+        set guifont=Source\ Code\ Pro\ 11
     elseif has("gui_macvim")
-        set guifont=Source\ Code\ Pro\ Medium:h10
+        set guifont=Source\ Code\ Pro:h11
     elseif has("gui_kde")
-        set guifont=Source\ Code\ Pro\ Medium/10/-1/5/50/0/0/0/1/0
+        set guifont=Source\ Code\ Pro/11/-1/5/50/0/0/0/1/0
     elseif has("gui_photon")
-        set guifont=Source\ Code\ Pro\ Medium:s10
+        set guifont=Source\ Code\ Pro:s11
     elseif has("x11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     else
-        set guifont=Source\ Code\ Pro\ Medium:h10:cDEFAULT
-        "set guifont=DejaVu\ Sans\ Mono:h10:cDEFAULT
+        set guifont=Source\ Code\ Pro:h11:cDEFAULT
+        "set guifont=DejaVu\ Sans\ Mono:h11:cDEFAULT
     endif
     set guioptions-=m "remove menu bar
     set guioptions-=T "remove toolbar
