@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Based on dotfiles by Ben Alman (https://github.com/cowboy/dotfiles).
+# Idea taken from https://github.com/cowboy/dotfiles.
 
 echo "Lucian's dotfiles install script"
 
@@ -13,7 +13,7 @@ Usage: $(basename "$0")
 See the README for documentation.
 https://github.com/lucianp/dotfiles.git
 
-Copyright (c) 2013 Lucian Pestritu
+Copyright (c) 2014 Lucian Pestritu
 Licensed under the MIT license.
 HELP
     exit 0
@@ -27,7 +27,7 @@ BACKUP_DIR="$HOME/dotfiles/backup/$(date "+%Y-%m-%dT%H.%M.%S%Z")/"
 # modularity and maintainability.
 function link() {
     local base dest
-    local files=(~/dotfiles/link/*) # this is a bash array
+    local files=("$HOME"/dotfiles/link/*) # this is a bash array
     # Abort if no files found (no need to print the header).
     if [[ ${#files[@]} -eq 0 ]]; then
         return;
@@ -35,7 +35,7 @@ function link() {
 
     echo 'Linking files into home directory...'
     for file in "${files[@]}"; do
-        base="$(basename $file)"
+        base=$(basename "$file")
         dest="$HOME/$base"
         # Skip if $dest is already a link to $file
         if [[ "$file" -ef "$dest" ]]; then
