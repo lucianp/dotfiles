@@ -1,0 +1,28 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The .vsvimrc file of Lucian Pestritu
+" Check http://github.com/lucianp/dotfiles for the latest version.
+"
+" VsVim[1] is a Vim Emulation layer for Visual Studio 2010 and above [2].
+" It integrates the familiar key binding experience of Vim directly into Visual
+" Studio's editor.
+" Keep in mind that VsVim can be temporarily disabled using Ctrl+Shift+F12.
+" [1]. http://github.com/jaredpar/VsVim
+" [2]. http://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search results will be highlighted
+set hlsearch
+" Highlight current line
+set cul
+" Enable backspace in insert mode
+set backspace=indent,eol,start
+""" Do not place comments on the same line with *map commands!
+" Press jj instead of <Esc> to exit insert mode
+imap jj <Esc>
+" Y yanks the current inner word into the "y register
+noremap Y "yyiw
+" S replaces the current inner word with the "y register
+noremap S diw"yP
+" Prefer editor settings
+set vsvim_useeditorindent
+set vsvim_useeditordefaults
+
