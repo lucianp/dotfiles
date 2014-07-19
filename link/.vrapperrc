@@ -2,9 +2,9 @@
 " The .vrapperrc file of Lucian Pestritu
 " Check http://github.com/lucianp/dotfiles for the latest version.
 "
-" Quote from Vrapper's official website http://vrapper.sourceforge.net/home :
-" Vrapper is an Eclipse plugin which acts as a wrapper for Eclipse text editors
-" to provide a Vim-like input scheme for moving around and editing text.
+" Vrapper[1] is an Eclipse plugin which acts as a wrapper for Eclipse text
+" editors to provide a Vim-like input scheme for moving around and editing text.
+" [1]. http://vrapper.sourceforge.net/home
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Let the underlying editor indent (on by default anyway)
 set smartindent
