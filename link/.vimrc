@@ -87,7 +87,8 @@ if has("gui_running")
     elseif has("x11")
         set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     else
-        set guifont=Source\ Code\ Pro:h11:cDEFAULT
+        set guifont=Consolas:h11:cDEFAULT
+        "set guifont=Source\ Code\ Pro:h11:cDEFAULT
         "set guifont=DejaVu\ Sans\ Mono:h11:cDEFAULT
     endif
     set guioptions-=m "remove menu bar
@@ -133,8 +134,6 @@ noremap S diw"yP
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_checkers = ['jsl']
 let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 "let g:syntastic_html_tidy_ignore_errors=['trimming empty']
