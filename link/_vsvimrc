@@ -25,4 +25,5 @@ noremap S diw"yP
 " Prefer editor settings
 set vsvim_useeditorindent
 set vsvim_useeditordefaults
-
+" Use the system clipboard
+set clipboard=unnamed

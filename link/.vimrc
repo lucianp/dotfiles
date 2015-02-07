@@ -22,7 +22,7 @@ set nocompatible " get rid of Vi compatibility mode (should be set first)
 " silent! is used to suppress error messages if the config line references
 " plugins/colorschemes that might be missing
 silent! call pathogen#infect() " call pathogen plugin management
-
+set clipboard=unnamed " use the system clipboard
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 2. Events
