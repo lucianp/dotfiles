@@ -1,6 +1,6 @@
 augroup filetypedetect
 " Promela
-au BufNewFile,BufRead *.promela,*.prm setf promela
+au BufNewFile,BufRead *.promela,*.prm setlocal ft=promela
 " Markdown
 au BufNewFile,BufRead *.md,*.mdown setlocal ft=markdown
 " Atlassian Confluence Wiki
