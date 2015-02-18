@@ -1,5 +1,6 @@
 /backup/
 /link/.vim/spell/
+/link/.vim/view/
 
 # Swap files (mostly of Vim)
 .*.s[a-w][a-z]
