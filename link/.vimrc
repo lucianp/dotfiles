@@ -37,7 +37,9 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType java setlocal colorcolumn=100
 " For TeX do not display guide line at all
 autocmd FileType tex setlocal colorcolumn=
-
+" Save folds on exit
+autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 3. Colors and schemes
