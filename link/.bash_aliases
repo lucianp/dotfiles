@@ -16,6 +16,7 @@ alias ll='ls -hAlF'
 
 ### date aliases
 alias day='date +%Y-%m-%d'
+alias week='date +%V'
 alias isodate='date +%Y-%m-%dT%H.%M%Z'
 
 ### clear aliases
