@@ -115,6 +115,11 @@ set expandtab       " use spaces instead of tabs
 "set smarttab       " use tabs at the start of a line, spaces elsewhere
 set nowrap          " do not wrap text
 set backspace=indent,eol,start " Enable backspace in insert mode
+" Change formatting slightly, depending on the file type.
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType plsql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
