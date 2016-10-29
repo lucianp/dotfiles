@@ -18,10 +18,15 @@ alias ll='ls -hAlF'
 alias day='date +%Y-%m-%d'
 alias week='date +%V'
 alias isodate='date +%Y-%m-%dT%H.%M%Z'
+days-ago() {
+    date -d "$1 days ago" '+%Y-%m-%d'
+}
 
 ### clear aliases
 alias cl='clear'
 alias cls='clear;l'
+alias cll='clear;ll'
+alias sep='for i in {1..100}; do echo -n -; done; echo'
 
 ### platform specific aliases
 unamestr="$(uname)"
