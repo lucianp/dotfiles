@@ -7,4 +7,6 @@ au BufNewFile,BufRead *.md,*.mdown setlocal ft=markdown
 au BufNewFile,BufRead *.confluencewiki,*.cfwiki setlocal ft=confluencewiki
 " PL/SQL
 au BufNewFile,BufRead *.psql,*.plsql setlocal ft=plsql
+" Java Server Pages Fragment
+au BufNewFile,BufRead *.jspf setlocal ft=jsp
 augroup END
