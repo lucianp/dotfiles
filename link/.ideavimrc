@@ -1,0 +1,26 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The .ideavimrc file of Lucian Pestritu
+" Check http://github.com/lucianp/dotfiles for the latest version.
+"
+" IdeaVim[1] is a Vim emulation plugin for IDEs based on the IntelliJ platform.
+" [1]. https://github.com/JetBrains/ideavim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Makes searches case-insensitive by default.
+set ignorecase
+" Search results will be highlighted.
+set hlsearch
+" Causes the cursor to move to the first closest match as the search pattern is typed.
+set incsearch
+" Print the line number in front of each line.
+set number
+" Show the line number relative to the current line.
+set relativenumber
+" Emulate the vim-surround plugin (https://github.com/tpope/vim-surround).
+set surround
+""" NOTE: Do not place comments on the same line with *map commands!
+" Press jj instead of <Esc> to exit insert mode.
+imap jj <Esc>
+" Y yanks the current inner word into the "y register.
+noremap Y "yyiw
+" S replaces the current inner word with the "y register.
+noremap S diw"yP
