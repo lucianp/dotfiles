@@ -1,3 +1,4 @@
 utl_3_0a.vba: call delete('/home/lucian/.vim/doc/utl_usr.txt')|call delete('/home/lucian/.vim/autoload/utl_lib.vim')|call delete('/home/lucian/.vim/plugin/utl.vim')|call delete('/home/lucian/.vim/plugin/utl_rc.vim')|call delete('/home/lucian/.vim/plugin/utl_scm.vim')|call delete('/home/lucian/.vim/plugin/utl_uri.vim')
 tagbar.vmb: call delete('/home/lucian/.vim/README.md')|call delete('/home/lucian/.vim/autoload/tagbar.vim')|call delete('/home/lucian/.vim/doc/tagbar.txt')|call delete('/home/lucian/.vim/plugin/tagbar.vim')|call delete('/home/lucian/.vim/syntax/tagbar.vim')
 NrrwRgn-0.33.vmb: call delete('/home/lucian/.vim/plugin/NrrwRgn.vim')|call delete('/home/lucian/.vim/autoload/nrrwrgn.vim')|call delete('/home/lucian/.vim/doc/NarrowRegion.txt')
+SyntaxRange-1.02.vmb: call delete('/home/lucian/.vim/autoload/SyntaxRange.vim')|call delete('/home/lucian/.vim/plugin/SyntaxRange.vim')|call delete('/home/lucian/.vim/doc/SyntaxRange.txt')
