@@ -33,12 +33,6 @@ filetype on
 filetype indent on
 " Enable the loading of plugin files for specific file types
 filetype plugin on
-" In Makefiles DO NOT use spaces instead of tabs
-autocmd FileType make setlocal noexpandtab
-" For Java display guide line at column 100 (instead of 80; see below)
-autocmd FileType java setlocal colorcolumn=100
-" For TeX do not display guide line at all
-autocmd FileType tex setlocal colorcolumn=
 " Save folds before exiting
 autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 autocmd BufWinEnter * if expand("%") != "" | loadview | endif
@@ -120,9 +114,15 @@ set backspace=indent,eol,start " Enable backspace in insert mode
 " Change formatting slightly, depending on the file type
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType org setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType plsql setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
+" In Makefiles DO NOT use spaces instead of tabs
+autocmd FileType make setlocal noexpandtab
+" For Java display guide line at column 100 (instead of 80; see below)
+autocmd FileType java setlocal colorcolumn=100
+" For TeX do not display guide line at all
+autocmd FileType tex setlocal colorcolumn=
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 7. Key mappings
