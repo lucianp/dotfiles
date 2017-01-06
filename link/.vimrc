@@ -140,17 +140,17 @@ noremap S diw"yP
 """ 8. Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_check_on_open = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 5
+let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checkers=['jsl']
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
 "let g:syntastic_html_tidy_ignore_errors=['trimming empty']
 "let g:syntastic_disabled_filetypes=['html']
 
 " NERDTree
 "autocmd vimenter * NERDTree  " start NERDTree when Vim starts
-let g:NERDTreeWinPos = "left" " set the position of the NERDTree window to left
+let g:NERDTreeWinPos="left" " set the position of the NERDTree window to left
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
