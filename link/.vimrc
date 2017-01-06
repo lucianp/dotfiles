@@ -27,9 +27,11 @@ silent! call pathogen#infect() " call pathogen plugin management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 2. Events
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Load files for specific filetypes
+" Enable file type detection
 filetype on
+" Enable the loading of indent files for specific file types
 filetype indent on
+" Enable the loading of plugin files for specific file types
 filetype plugin on
 " In Makefiles DO NOT use spaces instead of tabs
 autocmd FileType make setlocal noexpandtab
@@ -37,14 +39,14 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType java setlocal colorcolumn=100
 " For TeX do not display guide line at all
 autocmd FileType tex setlocal colorcolumn=
-" Save folds on exit
+" Save folds before exiting
 autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 3. Colors and schemes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable " enable syntax highlighting (previously syntax on).
+syntax enable " enable syntax highlighting (previously syntax on)
 set t_Co=256  " 256 color terminal support
 "set t_Co=16  " 16-color (useful for some colorschemes when running in CLI)
 "set term=builtin_ansi
@@ -115,7 +117,7 @@ set expandtab       " use spaces instead of tabs
 "set smarttab       " use tabs at the start of a line, spaces elsewhere
 set nowrap          " do not wrap text
 set backspace=indent,eol,start " Enable backspace in insert mode
-" Change formatting slightly, depending on the file type.
+" Change formatting slightly, depending on the file type
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -138,11 +140,11 @@ noremap S diw"yP
 """ 8. Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs = 1
 let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
+let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 "let g:syntastic_html_tidy_ignore_errors=['trimming empty']
 "let g:syntastic_disabled_filetypes=['html']
 
