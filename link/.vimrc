@@ -124,16 +124,34 @@ autocmd FileType java setlocal colorcolumn=100
 " For TeX do not display guide line at all
 autocmd FileType tex setlocal colorcolumn=
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 7. Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do not place comments on the same line with *map commands!
+" !!! Comments should not be placed on the same line with *map commands
+" Set the leader key(s) to space (the default is backslash \)
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 " Press jj instead of <Esc> to exit insert mode
 imap jj <Esc>
 " Y yanks the current inner word into the "y register
 noremap Y "yyiw
 " S replaces the current inner word with the "y register
 noremap S diw"yP
+" Press <Space>w to save file (normal mode)
+nnoremap <Leader>w :w<CR>
+" Copy to system clipboard with <Space>y (visual mode)
+vmap <Leader>y "+y
+" Cut to system clipboard with <Space>d (visual mode)
+vmap <Leader>d "+d
+" Paste from system clipboard with <Space>p or <Space>P (normal mode)
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+" Paste from system clipboard with <Space>p or <Space>P (visual mode)
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+" Enter visual line mode with <Space><Space>
+nmap <Leader><Leader> V
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
