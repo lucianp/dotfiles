@@ -170,6 +170,13 @@ let g:syntastic_loc_list_height=5
 "autocmd vimenter * NERDTree  " start NERDTree when Vim starts
 let g:NERDTreeWinPos="left" " set the position of the NERDTree window to left
 
+" vim-orgmode
+" Custom todo keywords, tailored to my current workflow: the first set is for
+" usual tasks (including bugs), and the second set is for support tickets.
+let g:org_todo_keywords = [['TODO(t)', 'IN_PROGRESS(p)', 'ON_HOLD(h)',
+    \ 'IN_REVIEW(r)', '|', 'DONE(d)', 'CANCELED(c)'],
+    \ ['ASSIGNED(a)', 'ONGOING(o)', 'WAITING_FOR_USER(u)', '|',
+    \ 'RESOLVED(s)', 'WAITING_FOR_PROJ_MGMT(m)', 'DELEGATED(e)']]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 9. Modules
