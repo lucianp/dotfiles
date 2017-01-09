@@ -172,11 +172,13 @@ let g:NERDTreeWinPos="left" " set the position of the NERDTree window to left
 
 " vim-orgmode
 " Custom todo keywords, tailored to my current workflow: the first set is for
-" usual tasks (including bugs), and the second set is for support tickets.
+" usual tasks (including bugs), the second set is for support tickets, and the
+" third is for code review tasks
 let g:org_todo_keywords = [['TODO(t)', 'IN_PROGRESS(p)', 'ON_HOLD(h)',
     \ 'IN_REVIEW(r)', '|', 'DONE(d)', 'CANCELED(c)'],
-    \ ['ASSIGNED(a)', 'ONGOING(o)', 'WAITING_FOR_USER(u)', '|',
-    \ 'RESOLVED(s)', 'WAITING_FOR_PROJ_MGMT(m)', 'DELEGATED(e)']]
+    \ ['OPEN(o)', 'ONGOING(g)', 'WAITING_FOR_USER(u)', '|',
+    \ 'WAITING_FOR_PROJ_MGMT(m)', 'RESOLVED(s)', 'DELEGATED(e)'],
+    \ ['ASSIGNED(A)', 'STARTED(S)', '|', 'COMPLETED(C)']]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 9. Modules
