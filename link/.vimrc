@@ -176,9 +176,9 @@ let g:NERDTreeWinPos="left" " set the position of the NERDTree window to left
 " third is for code review tasks
 let g:org_todo_keywords = [['TODO(t)', 'IN_PROGRESS(p)', 'ON_HOLD(h)',
     \ 'IN_REVIEW(r)', '|', 'DONE(d)', 'CANCELED(c)'],
-    \ ['OPEN(o)', 'ONGOING(g)', 'WAITING_FOR_USER(u)', '|',
-    \ 'WAITING_FOR_PROJ_MGMT(m)', 'RESOLVED(s)', 'DELEGATED(e)'],
-    \ ['ASSIGNED(A)', 'STARTED(S)', '|', 'COMPLETED(C)']]
+    \ ['SP_OPEN(o)', 'SP_ONGOING(g)', 'SP_WAITING_FOR_USER(u)', '|',
+    \ 'SP_WAITING_FOR_PROJ_MGMT(m)', 'SP_RESOLVED(s)', 'SP_DELEGATED(e)'],
+    \ ['RV_ASSIGNED(A)', 'RV_STARTED(S)', '|', 'RV_COMPLETED(C)']]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 9. Modules
