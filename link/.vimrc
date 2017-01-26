@@ -140,6 +140,8 @@ noremap Y "yyiw
 noremap S diw"yP
 " Press <Space>w to save file (normal mode)
 nnoremap <Leader>w :w<CR>
+" Press <Space>f to switch to the last used buffer (normal mode)
+nnoremap <Leader>f :b#<CR>
 " Copy to system clipboard with <Space>y (visual mode)
 vmap <Leader>y "+y
 " Cut to system clipboard with <Space>d (visual mode)
