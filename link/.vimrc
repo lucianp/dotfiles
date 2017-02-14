@@ -44,8 +44,12 @@ syntax enable " enable syntax highlighting (previously syntax on)
 set t_Co=256  " 256 color terminal support
 "set t_Co=16  " 16-color (useful for some colorschemes when running in CLI)
 "set term=builtin_ansi
-set background=light " force-set the background to light (colorscheme-dependent)
-"set background=dark " force-set the background to dark (colorscheme-dependent)
+" Set background to light or dark depending on where Vim is running, GUI or CLI
+if has("gui_running")
+    set background=light
+else
+    set background=dark
+endif
 silent! colorscheme solarized
 "silent! colorscheme zenburn
 "silent! colorscheme django
