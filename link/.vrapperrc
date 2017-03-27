@@ -6,23 +6,43 @@
 " editors to provide a Vim-like input scheme for moving around and editing text.
 " [1]. http://vrapper.sourceforge.net/home
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Let the underlying editor indent (on by default anyway).
-set smartindent
-" Whether to indent inserted lines or not.
-set noautoindent
-" Makes searches case-insensitive by default.
+" Makes searches case-insensitive by default
 set ignorecase
-" Search results will be highlighted.
+" Search results will be highlighted
 set hlsearch
-" Causes the cursor to move to the first closest match as the search pattern is typed.
+" Move the cursor to the first closest match as the search pattern is typed
 set incsearch
-" Highlight current line.
+" Print the line number in front of each line
+set number
+" Let the underlying editor indent (on by default, anyway)
+set smartindent
+" Do not indent inserted lines
+set noautoindent
+" Highlight the current line
 set cul
-""" Do not place comments on the same line with *map commands!
-" Press jj instead of <Esc> to exit insert mode.
+
+" !!! Comments should not be placed on the same line with *map commands
+" Set the leader key to space (there is no default)
+" Note the different syntax for <Space> (in Vim proper it is "\<Space>")
+let mapleader="<Space>"
+" Press jj instead of <Esc> to exit insert mode
 imap jj <Esc>
-" Y yanks the current inner word into the "y register.
+" Y yanks the current inner word into the "y register
 noremap Y "yyiw
-" S replaces the current inner word with the "y register.
+" S replaces the current inner word with the "y register
 noremap S diw"yP
+" Press <Space>w to save file (normal mode)
+nnoremap <Leader>w :w<CR>
+" Copy to system clipboard with <Space>y (visual mode)
+vmap <Leader>y "+y
+" Cut to system clipboard with <Space>d (visual mode)
+vmap <Leader>d "+d
+" Paste from system clipboard with <Space>p or <Space>P (normal mode)
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+" Paste from system clipboard with <Space>p or <Space>P (visual mode)
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+" Enter visual line mode with <Space><Space>
+nmap <Leader><Leader> V
 
