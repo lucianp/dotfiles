@@ -1,4 +1,6 @@
 augroup filetypedetect
+" vim-orgmode
+au BufNewFile,BufRead *.org setlocal ft=org
 " Promela
 au BufNewFile,BufRead *.promela,*.prm setlocal ft=promela
 " Markdown
