@@ -119,7 +119,7 @@ set backspace=indent,eol,start " Enable backspace in insert mode
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType org setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    \ wrap linebreak tw=0 colorcolumn=
+    \ wrap linebreak tw=0 colorcolumn= concealcursor= 
 autocmd FileType sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType plsql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 " In Makefiles DO NOT use spaces instead of tabs
