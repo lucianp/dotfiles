@@ -4,3 +4,8 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+
+if [ -d '/Users/lucian/.sdkman' ]; then
+    export SDKMAN_DIR='/Users/lucian/.sdkman'
+    [[ -s '/Users/lucian/.sdkman/bin/sdkman-init.sh' ]] && source '/Users/lucian/.sdkman/bin/sdkman-init.sh'
+fi
