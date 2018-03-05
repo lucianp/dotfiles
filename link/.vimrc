@@ -81,7 +81,7 @@ if has("gui_running")
     if has("gui_gtk2")
         set guifont=Source\ Code\ Pro\ 11
     elseif has("gui_macvim")
-        set guifont=Source\ Code\ Pro:h11
+        set guifont=Source\ Code\ Pro:h13
     elseif has("gui_kde")
         set guifont=Source\ Code\ Pro/11/-1/5/50/0/0/0/1/0
     elseif has("gui_photon")
