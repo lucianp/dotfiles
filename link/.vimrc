@@ -167,11 +167,12 @@ nmap <Leader><Leader> V
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_checkers=['jsl']
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 "let g:syntastic_html_tidy_ignore_errors=['trimming empty']
 "let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " NERDTree
 "autocmd vimenter * NERDTree  " start NERDTree when Vim starts
