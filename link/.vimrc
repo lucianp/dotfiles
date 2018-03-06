@@ -3,15 +3,16 @@
 " Check http://github.com/lucianp/dotfiles for the latest version.
 "
 " Sections:
-" 1. General .................. General Vim behavior
-" 2. Events ................... General autocmd events
-" 3. Colors and schemes ....... Colors and colorschemes
-" 4. Vim UI ................... User interface behavior
-" 5. Vim GUI (gVim, MacVim) ... Graphical user interface options (fonts, etc.)
-" 6. Text formatting .......... Mostly tab and indentation related options
-" 7. Key mappings ............. Key mappings
-" 8. Plugins .................. Various plugin-specific options
-" 9. Modules .................. Sourcing other files (like .vimrc.local)
+"  1. General .................. General Vim behavior
+"  2. Events ................... General autocmd events
+"  3. Colors and schemes ....... Colors and colorschemes
+"  4. Vim UI ................... User interface behavior
+"  5. Vim GUI (gVim, MacVim) ... Graphical user interface options (fonts, etc.)
+"  6. Text formatting .......... Mostly tab and indentation related options
+"  7. Key mappings ............. Key mappings
+"  8. Macros ................... Frequently used macros
+"  9. Plugins .................. Various plugin-specific options
+" 10. Modules .................. Sourcing other files (like .vimrc.local)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -23,6 +24,7 @@ set nocompatible " get rid of Vi compatibility mode (should be set first)
 " plugins/colorschemes that might be missing
 silent! call pathogen#infect() " call pathogen plugin management
 "set clipboard=unnamed " use the system clipboard
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 2. Events
@@ -36,6 +38,7 @@ filetype plugin on
 " Save folds before exiting
 autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ 3. Colors and schemes
@@ -135,8 +138,8 @@ autocmd FileType tex setlocal colorcolumn=
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " !!! Comments should not be placed on the same line with *map commands
 " Set the leader key(s) to space (the default is backslash \)
-let mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
+let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 " Press jj instead of <Esc> to exit insert mode
 imap jj <Esc>
 " Y yanks the current inner word into the "y register
@@ -162,7 +165,22 @@ nmap <Leader><Leader> V
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" 8. Plugins
+""" 8. Macros
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Various org-mode blocks, properly indented and without changing any registers
+" other than @z (even the default register is left unchanged)
+" VERSE
+let @v='"zyy"zp^"_C#+BEGIN_VERSEbhhhv0r "zyy"zpll"_5xiENDO:let @"=@0'
+" EXAMPLE
+let @e='"zyy"zp^"_C#+BEGIN_EXAMPLEbhhhv0r "zyy"zpll"_5xiENDO:let @"=@0'
+" SRC sh
+let @s='"zyy"zp^"_C#+BEGIN_SRC shbbhhhv0r "zyy"zpll"_5xiENDel"_DO:let @"=@0'
+" SRC sql
+let @q='"zyy"zp^"_C#+BEGIN_SRC sqlbbhhhv0r "zyy"zpll"_5xiENDel"_DO:let @"=@0'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" 9. Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
 let g:syntastic_enable_signs=1
@@ -172,7 +190,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 "let g:syntastic_html_tidy_ignore_errors=['trimming empty']
 "let g:syntastic_disabled_filetypes=['html']
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map={ 'mode': 'passive' }
 
 " NERDTree
 "autocmd vimenter * NERDTree  " start NERDTree when Vim starts
@@ -182,15 +200,16 @@ let g:NERDTreeWinPos="left" " set the position of the NERDTree window to left
 " Custom todo keywords, tailored to my current workflow: the first set is for
 " usual tasks (including bugs), the second set is for support tickets, and the
 " third is for code review tasks
-let g:org_todo_keywords = [['TODO(t)', 'IN_PROGRESS(p)', 'ON_HOLD(h)',
+let g:org_todo_keywords=[['TODO(t)', 'IN_PROGRESS(p)', 'ON_HOLD(h)',
     \  'IN_REVIEW(r)', '|', 'DONE(d)', 'CANCELED(c)'],
     \ ['SP_OPEN(o)', 'SP_ONGOING(g)', 'SP_WAITING_FOR_USER(u)', '|',
     \  'SP_WAITING_FOR_PROJ_MGMT(m)', 'SP_RESOLVED(s)', 'SP_DELEGATED(e)'],
     \ ['RV_ASSIGNED(A)', 'RV_STARTED(S)', 'RV_UPDATED(U)', '|',
     \  'RV_COMPLETED(C)']]
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" 9. Modules
+""" 10. Modules
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if filereadable(glob("~/.vimrc.local")) 
     source ~/.vimrc.local
