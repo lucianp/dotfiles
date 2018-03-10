@@ -26,7 +26,8 @@ days-ago() {
 alias cl='clear'
 alias cls='clear;l'
 alias cll='clear;ll'
-alias sep='for i in {1..100}; do echo -n -; done; echo'
+alias mark='perl -E "\$s=q{=}; say \$s x 80; say \$s x 37 . q{MARKER} . \$s x 37; say \$s x 80"'
+alias clm='cl;mark'
 
 ### platform specific aliases
 unamestr="$(uname)"
