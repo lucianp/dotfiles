@@ -38,3 +38,8 @@ elif [[ "$unamestr" == *[Ll]inux* ]]; then
 fi
 unset unamestr
 
+### local alias definitions
+if [ -f ~/.bash_aliases.local ]; then
+    . ~/.bash_aliases.local
+fi
+
