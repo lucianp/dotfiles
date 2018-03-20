@@ -18,8 +18,11 @@ alias ll='ls -hAlF'
 alias day='date +%Y-%m-%d'
 alias week='date +%V'
 alias isodate='date +%Y-%m-%dT%H.%M%Z'
-days-ago() {
+gnu-days-ago() {
     date -d "$1 days ago" '+%Y-%m-%d'
+}
+mac-days-ago() {
+    date -v -$1d '+%Y-%m-%d'
 }
 
 ### clear aliases
@@ -29,12 +32,14 @@ alias cll='clear;ll'
 alias mark='perl -E "\$s=q{=}; say \$s x 80; say \$s x 37 . q{MARKER} . \$s x 37; say \$s x 80"'
 alias clm='cl;mark'
 
-### platform specific aliases
+### platform-specific aliases
 unamestr="$(uname)"
 if [[ "$unamestr" == *[Dd]arwin* ]]; then
     alias explore='open "$(pwd)"'
+    alias days-ago='mac-days-ago'
 elif [[ "$unamestr" == *[Ll]inux* ]]; then
     alias explore='nautilus "$(pwd)"'
+    alias days-ago='gnu-days-ago'
 fi
 unset unamestr
 
