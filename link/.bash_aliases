@@ -19,10 +19,16 @@ alias day='date +%Y-%m-%d'
 alias week='date +%V'
 alias isodate='date +%Y-%m-%dT%H.%M%Z'
 gnu-days-ago() {
-    date -d "$1 days ago" '+%Y-%m-%d'
+    local num_days_ago=$1
+    local format='+%Y-%m-%d'
+    [ -z "$2" ] || format=$2
+    date -d "$num_days_ago days ago" "$format"
 }
 mac-days-ago() {
-    date -v -$1d '+%Y-%m-%d'
+    local num_days_ago=$1
+    local format='+%Y-%m-%d'
+    [ -z "$2" ] || format=$2
+    date -v -"${num_days_ago}d" "$format"
 }
 
 ### clear aliases
