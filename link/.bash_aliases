@@ -39,11 +39,11 @@ alias mark='perl -E "\$s=q{=}; say \$s x 80; say \$s x 37 . q{MARKER} . \$s x 37
 alias clm='cl;mark'
 
 ### platform-specific aliases
-unamestr="$(uname)"
-if [[ "$unamestr" == *[Dd]arwin* ]]; then
+unamestr=$(uname)
+if echo "$unamestr" | grep -q '[Dd]arwin'; then
     alias explore='open "$(pwd)"'
     alias days-ago='mac-days-ago'
-elif [[ "$unamestr" == *[Ll]inux* ]]; then
+elif echo "$unamestr" | grep -q '[Ll]inux'; then
     alias explore='nautilus "$(pwd)"'
     alias days-ago='gnu-days-ago'
 fi
