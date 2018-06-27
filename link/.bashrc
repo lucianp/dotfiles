@@ -109,6 +109,10 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+# bash completion for macOS X, installed via brew
+if [ -f /usr/local/etc/bash_completion ] && ! shopt -oq posix; then
+    . /usr/local/etc/bash_completion
+fi
 
 # enable vi mode and map jj to exit insert mode
 set -o vi
