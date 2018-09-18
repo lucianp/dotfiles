@@ -28,7 +28,14 @@ mac-days-ago() {
     local num_days_ago=$1
     local format='+%Y-%m-%d'
     [ -z "$2" ] || format=$2
-    date -v -"${num_days_ago}d" "$format"
+    if [ "$num_days_ago" -ge 0 ]; then
+        # Get rid of the + sign (if it exists) and replace it with a -
+        num_days_ago="-$(( $num_days_ago ))"
+    else
+        # Replace the - sign with a + sign
+        num_days_ago="+$(( $num_days_ago * -1 ))"
+    fi
+    date -v "${num_days_ago}d" "$format"
 }
 
 ### clear aliases
