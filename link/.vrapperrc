@@ -31,18 +31,16 @@ imap jj <Esc>
 noremap Y "yyiw
 " S replaces the current inner word with the "y register
 noremap S diw"yP
-" Press <Space>w to save file (normal mode)
-nnoremap <Leader>w :w<CR>
-" Copy to system clipboard with <Space>y (visual mode)
-vmap <Leader>y "+y
-" Cut to system clipboard with <Space>d (visual mode)
-vmap <Leader>d "+d
-" Paste from system clipboard with <Space>p or <Space>P (normal mode)
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-" Paste from system clipboard with <Space>p or <Space>P (visual mode)
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-" Enter visual line mode with <Space><Space>
-nmap <Leader><Leader> V
+" Press <Space>fs to save file (normal mode)
+nnoremap <Leader>fs :w<CR>
+" Copy to system clipboard with <Space>oy (visual mode)
+vmap <Leader>oy "+y
+" Cut to system clipboard with <Space>od (visual mode)
+vmap <Leader>od "+d
+" Paste from system clipboard with <Space>op or <Space>oP (normal mode)
+nmap <Leader>op "+p
+nmap <Leader>oP "+P
+" Paste from system clipboard with <Space>op or <Space>oP (visual mode)
+vmap <Leader>op "+p
+vmap <Leader>oP "+P
 
