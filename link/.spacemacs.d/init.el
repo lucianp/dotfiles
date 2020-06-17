@@ -360,7 +360,7 @@ you should place your code here."
   ;; S replaces the current inner word with the "y register
   (define-key evil-normal-state-map (kbd "S") (kbd "diw\"yP"))
 
-  ;; Mappings behind SPC o
+  ;; Mappings behind SPC o (see also the "Saved macros" section)
   (spacemacs/declare-prefix "o" "Lucian's shortcuts")
 
   (spacemacs/declare-prefix "oy" "Yank to primary clipboard")
@@ -371,6 +371,17 @@ you should place your code here."
   (spacemacs/set-leader-keys "op" (kbd "\"+p"))
   (spacemacs/declare-prefix "oP" "Paste from primary clipboard before cursor")
   (spacemacs/set-leader-keys "oP" (kbd "\"+P"))
+
+  ;; Saved macros (behind SPC o o)
+  (spacemacs/declare-prefix "oo" "Macros")
+  (spacemacs/declare-prefix "oou" "Remove org link, keep URL")
+  (spacemacs/set-leader-keys "oou" (kbd "EB2xkjf]d2f]")) ;; the kj sequence is there to give a chance to org-mode to "refresh" the line and display the URL
+  (spacemacs/declare-prefix "oot" "Remove org link, keep text")
+  (spacemacs/set-leader-keys "oot" (kbd "EB2xkjdf[f]2x"))
+  (spacemacs/declare-prefix "ooa" "Convert org link to JIRA syntax")
+  (spacemacs/set-leader-keys "ooa" (kbd "EB2xkjdf]f]pxF]r|"))
+  (spacemacs/declare-prefix "ood" "Convert org link to Markdown syntax")
+  (spacemacs/set-leader-keys "ood" (kbd "EB2xkjdf]f]pxr)F]a(jj"))
 
 
   ;; ---------------------------------------------------------------------------
