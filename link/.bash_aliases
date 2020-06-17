@@ -17,7 +17,7 @@ alias ll='ls -hAlF'
 ### date aliases
 alias day='date +%Y-%m-%d'
 alias week='date +%V'
-alias isodate='date +%Y-%m-%dT%H.%M%Z'
+alias isodate='date +%Y-%m-%dT%Hh%M%Z'
 gnu-days-ago() {
     local num_days_ago=$1
     local format='+%Y-%m-%d'
