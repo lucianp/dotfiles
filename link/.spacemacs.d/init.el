@@ -388,6 +388,10 @@ you should place your code here."
   ;; Org mode configuration
   ;; ---------------------------------------------------------------------------
 
+  ;; Additional org-mode modules
+  ;; Instructions on how to do it "properly": https://github.com/syl20bnr/spacemacs/issues/12003
+  (with-eval-after-load 'org
+    (add-to-list 'org-modules 'org-habit t))
 
   ;; Map the cut-subtree command, which apparently is not mapped by default
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "Sd" 'org-cut-subtree)
