@@ -31,6 +31,6 @@ Files having the same name as the symbolic links are backed up into the
 
 License
 -------
-Copyright (c) 2019 Lucian Pestritu  
+Copyright (c) Lucian Pestritu  
 Licensed under the MIT license.
 
