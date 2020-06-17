@@ -114,7 +114,8 @@ if [ -f /usr/local/etc/bash_completion ] && ! shopt -oq posix; then
     . /usr/local/etc/bash_completion
 fi
 
-# enable vi mode and map jj to exit insert mode
-set -o vi
-bind '"jj":vi-movement-mode'
+# vi mode should be enabled via .inputrc
+# keeping these lines commented out for future reference
+#set -o vi
+#bind '"jj":vi-movement-mode'
 
