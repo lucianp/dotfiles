@@ -38,12 +38,8 @@ mac-days-ago() {
     date -v "${num_days_ago}d" "$format"
 }
 
-### clear aliases
-alias cl='clear'
-alias cls='clear;l'
-alias cll='clear;ll'
+### misc aliases
 alias mark='perl -E "\$s=q{=}; say \$s x 80; say \$s x 37 . q{MARKER} . \$s x 37; say \$s x 80"'
-alias clm='cl;mark'
 
 ### platform-specific aliases
 unamestr=$(uname)
