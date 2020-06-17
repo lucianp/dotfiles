@@ -388,15 +388,6 @@ you should place your code here."
   ;; Org mode configuration
   ;; ---------------------------------------------------------------------------
 
-  ;; Custom TODO keywords, tailored to my current workflow: the first set is for
-  ;; usual tasks (including bugs), the second set is for support tickets, and the
-  ;; third is for code review tasks
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "IN_PROGRESS(p)" "ON_HOLD(h)" "IN_REVIEW(r)" "|" "DONE(d)" "CANCELED(c)")
-          (sequence "SP_OPEN(o)" "SP_ONGOING(g)" "SP_WAITING_FOR_USER(u)" "|" "SP_WAITING_FOR_PROJ_MGMT(m)" "SP_RESOLVED(s)" "SP_DELEGATED(e)")
-          (sequence "RV_ASSIGNED(A)" "RV_STARTED(S)" "RV_UPDATED(U)" "|" "RV_COMPLETED(C)")
-        )
-  )
 
   ;; Map the cut-subtree command, which apparently is not mapped by default
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "Sd" 'org-cut-subtree)
