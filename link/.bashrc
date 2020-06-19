@@ -117,5 +117,6 @@ fi
 # vi mode should be enabled via .inputrc
 # keeping these lines commented out for future reference
 #set -o vi
-#bind '"jj":vi-movement-mode'
+#bind -m vi-insert '"jj": vi-movement-mode'
+#bind -m vi-insert 'Control-l: clear-screen'
 
