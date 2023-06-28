@@ -98,21 +98,14 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+export BASH_COMPLETION_COMPAT_DIR='/usr/local/etc/bash_completion.d'
+[ -r '/usr/local/etc/profile.d/bash_completion.sh' ] && . '/usr/local/etc/profile.d/bash_completion.sh'
+
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-# bash completion for macOS X, installed via brew
-if [ -f /usr/local/etc/bash_completion ] && ! shopt -oq posix; then
-    . /usr/local/etc/bash_completion
-fi
 
 # vi mode should be enabled via .inputrc
 # keeping these lines commented out for future reference

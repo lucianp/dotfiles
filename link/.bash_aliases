@@ -52,6 +52,9 @@ elif echo "$unamestr" | grep -q '[Ll]inux'; then
 fi
 unset unamestr
 
+alias k=kubectl
+complete -F __start_kubectl k
+
 ### local alias definitions
 if [ -f ~/.bash_aliases.local ]; then
     . ~/.bash_aliases.local
