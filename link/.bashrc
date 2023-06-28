@@ -106,6 +106,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Get rid of bash deprecation message on Mac OS X Catalina (https://support.apple.com/kb/HT208050)
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export LANG='en_US.UTF-8'
 
 # vi mode should be enabled via .inputrc
 # keeping these lines commented out for future reference
