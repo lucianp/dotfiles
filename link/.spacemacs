@@ -52,7 +52,9 @@ This function should only modify configuration layer settings."
      ;; lsp
      markdown
      multiple-cursors
-     (org :variables org-enable-reveal-js-support t)
+     (org :variables
+          org-enable-reveal-js-support t
+          org-adapt-indentation t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
