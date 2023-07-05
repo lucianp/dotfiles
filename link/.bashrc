@@ -133,3 +133,8 @@ if [ -d "$HOME/.sdkman" ]; then
     [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 
+# Oracle setup
+if [ -d "$HOME/tnsadmin" ]; then
+    export TNS_ADMIN="$HOME/tnsadmin"
+fi
+
