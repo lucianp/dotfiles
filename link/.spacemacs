@@ -54,10 +54,10 @@ This function should only modify configuration layer settings."
      multiple-cursors
      (org :variables
           search-invisible t
-          org-enable-reveal-js-support t
           org-adapt-indentation t
           org-display-inline-images nil
-          org-startup-with-inline-images nil)
+          org-startup-with-inline-images nil
+          org-enable-reveal-js-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
