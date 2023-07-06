@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      (org :variables
+          search-invisible t
           org-enable-reveal-js-support t
           org-adapt-indentation t
           org-display-inline-images nil
