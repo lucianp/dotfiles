@@ -125,6 +125,11 @@ if [ -d "/opt/homebrew" ]; then
     export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
     export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
     export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+    # Set GNU grep as "default"
+    if [ -d "/opt/homebrew/opt/grep/libexec/gnubin" ]; then
+        PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+    fi
 fi
 
 # sdkman environment setup
