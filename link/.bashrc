@@ -98,8 +98,9 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-export BASH_COMPLETION_COMPAT_DIR='/usr/local/etc/bash_completion.d'
+[ -d '/usr/local/etc/bash_completion.d' ] && export BASH_COMPLETION_COMPAT_DIR='/usr/local/etc/bash_completion.d'
 [ -r '/usr/local/etc/profile.d/bash_completion.sh' ] && . '/usr/local/etc/profile.d/bash_completion.sh'
+[ -r '/opt/homebrew/etc/profile.d/bash_completion.sh' ] && . '/opt/homebrew/etc/profile.d/bash_completion.sh'
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
