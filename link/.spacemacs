@@ -624,8 +624,8 @@ before packages are loaded."
   ;; https://emacs.stackexchange.com/questions/41919/have-ctrl-a-increase-a-number-just-like-in-vim
   (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
   (define-key evil-visual-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-  (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-  (define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+  (define-key evil-normal-state-map (kbd "C-S-a") 'evil-numbers/dec-at-pt)
+  (define-key evil-visual-state-map (kbd "C-S-a") 'evil-numbers/dec-at-pt)
 
 
   ;; ---------------------------------------------------------------------------
