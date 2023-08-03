@@ -131,6 +131,11 @@ if [ -d "/opt/homebrew" ]; then
     if [ -d "/opt/homebrew/opt/grep/libexec/gnubin" ]; then
         PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
     fi
+
+    # Set GNU sed as "default"
+    if [ -d "/opt/homebrew/opt/gnu-sed/libexec/gnubin" ]; then
+        PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+    fi
 fi
 
 # sdkman environment setup
