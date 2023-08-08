@@ -2,6 +2,15 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+(defun lucian/run-dotfile-applescript (script-filename)
+  (let ((script (concat "run script \""
+                        (substitute-in-file-name "$HOME/dotfiles/apple-scripts/")
+                        script-filename
+                        "\"")))
+    (message "Executing AppleScript: %s" script)
+    (do-applescript script)))
+
+
 (defun dotspacemacs/layers ()
   "Layer configuration:
 This function should only modify configuration layer settings."
@@ -597,6 +606,32 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; ---------------------------------------------------------------------------
+  ;; Global key bindings
+  ;; ---------------------------------------------------------------------------
+
+  ;; Mappings for my MacOS Service shortcuts
+  (global-set-key (kbd "C-s-<f10>")
+                  (lambda ()
+                    (interactive)
+                    (lucian/run-dotfile-applescript "volume-down.scpt")))
+  (global-set-key (kbd "C-M-s-<f10>")
+                  (lambda ()
+                    (interactive)
+                    (lucian/run-dotfile-applescript "volume-mute-unmute.scpt")))
+  (global-set-key (kbd "C-s-<f11>")
+                  (lambda ()
+                    (interactive)
+                    (lucian/run-dotfile-applescript "volume-up.scpt")))
+  ;; For the following to work, we need to let Emacs control "System Events" in the MacOS Security & Privacy Settings
+  ;; To achieve that, run the following command in the Emacs shell:
+  ;; osascript ~/dotfiles/apple-scripts/start-screen-saver.scpt
+  (global-set-key (kbd "C-s-<f12>")
+                  (lambda ()
+                    (interactive)
+                    (lucian/run-dotfile-applescript "start-screen-saver.scpt")))
+
+
   ;; ---------------------------------------------------------------------------
   ;; Essential Vim behaviour
   ;; ---------------------------------------------------------------------------
