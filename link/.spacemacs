@@ -700,9 +700,6 @@ before packages are loaded."
   ;; Org mode configuration
   ;; ---------------------------------------------------------------------------
 
-  ;; Map the cut-subtree command, which apparently is not mapped by default
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "Sd" 'org-cut-subtree)
-
   ;; FIXME: Workaround to have easy templates working again
   ;; https://github.com/syl20bnr/spacemacs/issues/11798
   (when (version<= "9.2" (org-version))
