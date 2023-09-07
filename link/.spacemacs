@@ -574,6 +574,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
+  ;; Enable Evil mode in the minibuffer too
+  (setq evil-want-minibuffer t)
+
   ;; Set a more discreet font-size variation for org headers
   ;; https://emacs.stackexchange.com/questions/22584/disable-enlarged-org-mode-header-appearance
   ;;(setq theming-modifications
