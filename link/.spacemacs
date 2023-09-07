@@ -576,22 +576,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; Enable Evil mode in the minibuffer too
   (setq evil-want-minibuffer t)
-
-  ;; Set a more discreet font-size variation for org headers
-  ;; https://emacs.stackexchange.com/questions/22584/disable-enlarged-org-mode-header-appearance
-  ;;(setq theming-modifications
-  ;;      '((spacemacs-light
-  ;;         (org-level-1 :height 1.15)
-  ;;         (org-level-2 :height 1.10)
-  ;;         (org-level-3 :height 1.05)
-  ;;         (org-level-4 :height 1.0)
-  ;;         (org-level-5 :height 1.0))
-  ;;        (spacemacs-dark
-  ;;         (org-level-1 :height 1.15)
-  ;;         (org-level-2 :height 1.10)
-  ;;         (org-level-3 :height 1.05)
-  ;;         (org-level-4 :height 1.0)
-  ;;         (org-level-5 :height 1.0))))
 )
 
 
