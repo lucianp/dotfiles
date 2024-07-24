@@ -66,7 +66,10 @@ This function should only modify configuration layer settings."
           org-display-inline-images nil
           org-startup-with-inline-images nil
           org-src-preserve-indentation t ;; Fix issue with code blocks indentation increasing every time I press <return>
-          org-enable-reveal-js-support t)
+          org-enable-reveal-js-support t
+          org-use-sub-superscripts '{} ;; Disable sub/super scrips using _word and ^word, but allow _{word} and ^{word}
+          org-export-with-sub-superscripts '{} ;; Like org-use-sub-superscripts, but for exporting
+          )
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
