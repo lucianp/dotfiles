@@ -1,8 +1,22 @@
-diff --git a/link/.spacemacs b/link/.spacemacs
-index 47e1440..f626803 100644
---- a/link/.spacemacs
-+++ b/link/.spacemacs
-@@ -33,6 +33,12 @@ This function should only modify configuration layer settings."
+--- .spacemacs.original	2024-07-25 19:15:34
++++ .spacemacs.mine	2024-07-25 19:09:00
+@@ -2,6 +2,15 @@
+ ;; This file is loaded by Spacemacs at startup.
+ ;; It must be stored in your home directory.
+ 
++(defun lucian/run-dotfile-applescript (script-filename)
++  (let ((script (concat "run script \""
++                        (substitute-in-file-name "$HOME/dotfiles/apple-scripts/")
++                        script-filename
++                        "\"")))
++    (message "Executing AppleScript: %s" script)
++    (do-applescript script)))
++
++
+ (defun dotspacemacs/layers ()
+   "Layer configuration:
+ This function should only modify configuration layer settings."
+@@ -33,6 +42,12 @@
     ;; List of configuration layers to load.
     dotspacemacs-configuration-layers
     '(
@@ -15,7 +29,7 @@ index 47e1440..f626803 100644
       ;; ----------------------------------------------------------------
       ;; Example of useful layers you may want to use right away.
       ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-@@ -44,13 +50,15 @@ This function should only modify configuration layer settings."
+@@ -44,13 +59,23 @@
       ;; git
       helm
       ;; lsp
@@ -42,7 +56,27 @@ index 47e1440..f626803 100644
       ;; syntax-checking
       ;; version-control
       treemacs)
-@@ -501,7 +509,7 @@ It should only modify the values of Spacemacs settings."
+@@ -237,8 +262,8 @@
+    ;; List of themes, the first of the list is loaded when spacemacs starts.
+    ;; Press `SPC T n' to cycle to the next theme in the list (works great
+    ;; with 2 themes variants, one dark and one light)
+-   dotspacemacs-themes '(spacemacs-dark
+-                         spacemacs-light)
++   dotspacemacs-themes '(spacemacs-light
++                         spacemacs-dark)
+ 
+    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
+@@ -259,7 +284,7 @@
+    ;; a non-negative integer (pixel size), or a floating-point (point size).
+    ;; Point size is recommended, because it's device independent. (default 10.0)
+    dotspacemacs-default-font '("Source Code Pro"
+-                               :size 10.0
++                               :size 13.0
+                                :weight normal
+                                :width normal)
+ 
+@@ -515,7 +540,7 @@
     ;; `trailing' to delete only the whitespace at end of lines, `changed' to
     ;; delete only whitespace for changed lines or `nil' to disable cleanup.
     ;; (default nil)
@@ -51,33 +85,46 @@ index 47e1440..f626803 100644
  
     ;; If non-nil activate `clean-aindent-mode' which tries to correct
     ;; virtual indentation of simple modes. This can interfere with mode specific
-@@ -551,6 +559,22 @@ This function is called immediately after `dotspacemacs/init', before layer
+@@ -565,6 +590,9 @@
  configuration.
  It is mostly for variables that should be set before packages are loaded.
  If you are unsure, try setting them in `dotspacemacs/user-config' first."
 +
-+  ;; Set a more discreet font-size variation for org headers
-+  ;; https://emacs.stackexchange.com/questions/22584/disable-enlarged-org-mode-header-appearance
-+  ;;(setq theming-modifications
-+  ;;      '((spacemacs-light
-+  ;;         (org-level-1 :height 1.15)
-+  ;;         (org-level-2 :height 1.10)
-+  ;;         (org-level-3 :height 1.05)
-+  ;;         (org-level-4 :height 1.0)
-+  ;;         (org-level-5 :height 1.0))
-+  ;;        (spacemacs-dark
-+  ;;         (org-level-1 :height 1.15)
-+  ;;         (org-level-2 :height 1.10)
-+  ;;         (org-level-3 :height 1.05)
-+  ;;         (org-level-4 :height 1.0)
-+  ;;         (org-level-5 :height 1.0))))
++  ;; Enable Evil mode in the minibuffer too
++  (setq evil-want-minibuffer t)
  )
  
  
-@@ -568,6 +592,81 @@ This function is called at the very end of Spacemacs startup, after layer
+@@ -582,6 +610,104 @@
  configuration.
  Put your configuration code here, except for variables that should be set
  before packages are loaded."
++  ;; ---------------------------------------------------------------------------
++  ;; Global key bindings
++  ;; ---------------------------------------------------------------------------
++
++  ;; Mappings for my MacOS Service shortcuts
++  (global-set-key (kbd "C-s-<f10>")
++                  (lambda ()
++                    (interactive)
++                    (lucian/run-dotfile-applescript "volume-down.scpt")))
++  (global-set-key (kbd "C-M-s-<f10>")
++                  (lambda ()
++                    (interactive)
++                    (lucian/run-dotfile-applescript "volume-mute-unmute.scpt")))
++  (global-set-key (kbd "C-s-<f11>")
++                  (lambda ()
++                    (interactive)
++                    (lucian/run-dotfile-applescript "volume-up.scpt")))
++  ;; For the following to work, we need to let Emacs control "System Events" in the MacOS Security & Privacy Settings
++  ;; To achieve that, run the following command in the Emacs shell:
++  ;; osascript ~/dotfiles/apple-scripts/start-screen-saver.scpt
++  (global-set-key (kbd "C-s-<f12>")
++                  (lambda ()
++                    (interactive)
++                    (lucian/run-dotfile-applescript "start-screen-saver.scpt")))
++
++
 +  ;; ---------------------------------------------------------------------------
 +  ;; Essential Vim behaviour
 +  ;; ---------------------------------------------------------------------------
@@ -105,8 +152,8 @@ index 47e1440..f626803 100644
 +  ;; https://emacs.stackexchange.com/questions/41919/have-ctrl-a-increase-a-number-just-like-in-vim
 +  (define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
 +  (define-key evil-visual-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-+  (define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
-+  (define-key evil-visual-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
++  (define-key evil-normal-state-map (kbd "C-S-a") 'evil-numbers/dec-at-pt)
++  (define-key evil-visual-state-map (kbd "C-S-a") 'evil-numbers/dec-at-pt)
 +
 +
 +  ;; ---------------------------------------------------------------------------
@@ -145,9 +192,6 @@ index 47e1440..f626803 100644
 +  ;; ---------------------------------------------------------------------------
 +  ;; Org mode configuration
 +  ;; ---------------------------------------------------------------------------
-+
-+  ;; Map the cut-subtree command, which apparently is not mapped by default
-+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "Sd" 'org-cut-subtree)
 +
 +  ;; FIXME: Workaround to have easy templates working again
 +  ;; https://github.com/syl20bnr/spacemacs/issues/11798
