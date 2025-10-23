@@ -673,6 +673,16 @@ before packages are loaded."
   (spacemacs/set-leader-keys "ooa" (kbd "EB2xkjdf]f]pxF]r|"))
   (spacemacs/declare-prefix "ood" "Convert org link to Markdown syntax")
   (spacemacs/set-leader-keys "ood" (kbd "EB2xkjdf]f]pxr)F]a(jj"))
+
+
+  ;; ---------------------------------------------------------------------------
+  ;; Org mode configuration
+  ;; ---------------------------------------------------------------------------
+
+  ;; FIXME: Workaround to have easy templates working again
+  ;; https://github.com/syl20bnr/spacemacs/issues/11798
+  (when (version<= "9.2" (org-version))
+    (require 'org-tempo))
   )
 
 
