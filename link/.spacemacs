@@ -600,7 +600,7 @@ before packages are loaded."
   ;; ---------------------------------------------------------------------------
 
   ;; Mappings for my MacOS Service shortcuts
-  (global-set-key (kbd "C-s-<f6>")
+  (global-set-key (kbd "C-M-s-<f12>")
                   (lambda ()
                     (interactive)
                     (lucian/run-macos-automator-service "start-screen-saver")))
