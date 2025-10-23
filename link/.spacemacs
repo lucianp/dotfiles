@@ -600,22 +600,22 @@ before packages are loaded."
   ;; ---------------------------------------------------------------------------
 
   ;; Mappings for my MacOS Service shortcuts
-  (global-set-key (kbd "C-s-<f10>")
+  (global-set-key (kbd "C-s-<f6>")
                   (lambda ()
                     (interactive)
-                    (lucian/run-macos-automator-service "volume-down")))
-  (global-set-key (kbd "C-M-s-<f10>")
+                    (lucian/run-macos-automator-service "start-screen-saver")))
+  (global-set-key (kbd "C-s-<f10>")
                   (lambda ()
                     (interactive)
                     (lucian/run-macos-automator-service "volume-mute-unmute")))
   (global-set-key (kbd "C-s-<f11>")
                   (lambda ()
                     (interactive)
-                    (lucian/run-macos-automator-service "volume-up")))
+                    (lucian/run-macos-automator-service "volume-down")))
   (global-set-key (kbd "C-s-<f12>")
                   (lambda ()
                     (interactive)
-                    (lucian/run-macos-automator-service "start-screen-saver")))
+                    (lucian/run-macos-automator-service "volume-up")))
 
 
   ;; ---------------------------------------------------------------------------
