@@ -136,6 +136,14 @@ if [ -d "/opt/homebrew" ]; then
     if [ -d "/opt/homebrew/opt/gnu-sed/libexec/gnubin" ]; then
         export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
     fi
+    # Set GNU tar as "default"
+    if [ -d "/opt/homebrew/opt/gnu-tar/libexec/gnubin" ]; then
+        export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+    fi
+    # Prefer Homebrew curl over whatever version is already installed
+    if [ -d "/opt/homebrew/opt/curl/bin" ]; then
+        export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+    fi
 fi
 
 # sdkman environment setup
