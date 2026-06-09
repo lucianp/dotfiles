@@ -31,6 +31,20 @@ noremap Y "yyiw
 noremap S diw"yP
 " Press <Space>fs to save file (normal mode)
 nnoremap <Leader>fs :w<CR>
+" Press <Space><Tab> to switch to the last used buffer (normal mode)
+nnoremap <Leader><Tab> :b#<CR>
+" Press <Space>w<Tab> to switch to the last used window (normal mode)
+nnoremap <Leader>w<Tab> 
+" Press <Space>ww to switch to the next window (normal mode)
+nnoremap <Leader>ww w
+" Press <Space>wv to split window vertically (normal mode)
+nnoremap <Leader>wv v
+" Press <Space>ws to split window horizontally (normal mode)
+nnoremap <Leader>ws s
+" Press <Space>wm to maximize window (normal mode)
+nnoremap <Leader>wm o
+" Press <Space>wd to close the current window (normal mode)
+nnoremap <Leader>wd q
 " Copy to system clipboard with <Space>oy (visual mode)
 vmap <Leader>oy "+y
 " Cut to system clipboard with <Space>od (visual mode)
