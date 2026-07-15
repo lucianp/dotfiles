@@ -626,7 +626,7 @@ before packages are loaded."
 
   ;; Set escape keybinding to "jj" (except when in visual mode)
   (setq-default evil-escape-key-sequence "jj"
-                evil-escape-delay 0.2
+                evil-escape-delay 0.5
                 evil-escape-excluded-states '(visual))
 
   ;; Prevent kill and yank commands from accessing the system clipboard
