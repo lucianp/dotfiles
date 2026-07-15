@@ -52,10 +52,8 @@ elif echo "$unamestr" | grep -q '[Ll]inux'; then
 fi
 unset unamestr
 
-alias k=kubectl
-complete -F __start_kubectl k
-
 alias quick-shell-config="echo -e \"alias ll='ls -hAlF'\nset -o vi\nbind -m vi-insert '\\\"jj\\\": vi-movement-mode'\nbind -m vi-insert 'Control-l: clear-screen'\" | pbcopy"
+
 
 ### local alias definitions
 if [ -f ~/.bash_aliases.local ]; then
