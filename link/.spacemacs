@@ -244,7 +244,9 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme 'doom
+   doom-modeline-height 25
+   nerd-icons-scale-factor 1.25
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -261,7 +263,7 @@ It should only modify the values of Spacemacs settings."
                                :width normal)
 
    ;; Default icons font, it can be `all-the-icons' or `nerd-icons'.
-   dotspacemacs-default-icons-font 'all-the-icons
+   dotspacemacs-default-icons-font 'nerd-icons
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
