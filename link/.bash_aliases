@@ -41,6 +41,16 @@ mac-days-ago() {
 ### misc aliases
 alias mark='perl -E "\$s=q{=}; say \$s x 80; say \$s x 37 . q{MARKER} . \$s x 37; say \$s x 80"'
 
+# Extract the tag version from the image name of the specified Kubernetes deployment
+k-deploy-ver() {
+  if [ "$#" -ne 1 ]; then
+      echo "Error: deployment name is required." >&2
+      echo "Usage: k8s-version <deployment-name>" >&2
+      return 1
+  fi
+  kubectl get deployment "$1" -o jsonpath='{.spec.template.spec.containers[0].image}' | sed 's/.*://'
+}
+
 ### platform-specific aliases
 unamestr=$(uname)
 if echo "$unamestr" | grep -q '[Dd]arwin'; then
