@@ -69,21 +69,6 @@ mark() {
     printf '%80s\n' '' | tr ' ' '='
 }
 
-# Prints the image tag used by the first container of a Kubernetes deployment.
-k-deploy-ver() {
-    if [ "$#" -ne 1 ]; then
-        printf 'Error: deployment name is required.\n' >&2
-        printf 'Usage: k-deploy-ver <deployment-name>\n' >&2
-        return 1
-    fi
-
-    kubectl get deployment "$1" \
-        -o jsonpath='{.spec.template.spec.containers[0].image}' |
-        sed 's/.*://'
-
-    printf '\n'
-}
-
 # Prints stdin and copies it to the clipboard. By default, printed output is
 # guaranteed to end with a newline, while one trailing newline is omitted
 # from the clipboard content. Use -p to preserve stdin exactly.
@@ -149,6 +134,65 @@ quick-shell-config() {
         "bind -m vi-insert 'Control-l: clear-screen'" |
         clipboard-copy
 }
+
+# Prints the image tag used by the first container of a Kubernetes deployment.
+k-deploy-ver() {
+    if [ "$#" -ne 1 ]; then
+        printf 'Error: deployment name is required.\n' >&2
+        printf 'Usage: k-deploy-ver <deployment-name>\n' >&2
+        return 1
+    fi
+
+    kubectl get deployment "$1" \
+        -o jsonpath='{.spec.template.spec.containers[0].image}' |
+        sed 's/.*://'
+
+    printf '\n'
+}
+
+# Configure kubectl bash completion, which otherwise gets loaded lazily.
+# Also configure the abbreviated k alias.
+if command -v kubectl >/dev/null 2>&1; then
+    if [ -n "${BASH_COMPLETION_USER_DIR:-}" ]; then
+        _kubectl_completion_dir="$BASH_COMPLETION_USER_DIR/completions"
+    else
+        _kubectl_completion_dir="${XDG_DATA_HOME:-"$HOME/.local/share"}/bash-completion/completions"
+    fi
+
+    _kubectl_completion_file="$_kubectl_completion_dir/kubectl"
+
+    # Load an existing completion definition when available.
+    if ! complete -p kubectl >/dev/null 2>&1; then
+        # Generate and cache the completion script if it is missing or empty.
+        if [ ! -s "$_kubectl_completion_file" ]; then
+            if mkdir -p "$_kubectl_completion_dir"; then
+                _kubectl_completion_tmp="$_kubectl_completion_file.tmp.$$"
+
+                if kubectl completion bash >"$_kubectl_completion_tmp"; then
+                    mv "$_kubectl_completion_tmp" "$_kubectl_completion_file"
+                else
+                    rm -f "$_kubectl_completion_tmp"
+                fi
+            fi
+        fi
+
+        # Load the cached completion script.
+        if [ -s "$_kubectl_completion_file" ]; then
+            . "$_kubectl_completion_file"
+        fi
+    fi
+
+    alias k='kubectl'
+
+    # Apply kubectl's completion function to the alias.
+    if declare -F __start_kubectl >/dev/null 2>&1; then
+        complete -o default -F __start_kubectl k
+    fi
+
+    unset _kubectl_completion_dir
+    unset _kubectl_completion_file
+    unset _kubectl_completion_tmp
+fi
 
 
 # Load machine-specific aliases and overrides, when present.
