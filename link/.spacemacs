@@ -587,6 +587,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
+  ;; Fix frame state issue on macOS after sleep with external monitor
+  (setq frame-resize-pixelwise t)
+
   ;; Enable Evil mode in the minibuffer too
   (setq evil-want-minibuffer t)
   )
